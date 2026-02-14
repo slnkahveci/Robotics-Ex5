@@ -24,6 +24,13 @@ YourPlanner::getName() const
 void
 YourPlanner::choose(::rl::math::Vector& chosen)
 {
+  // with %5 probability, directly sample the goal to encourage faster convergence
+  if ((rand() % 20) == 0)
+  {
+    chosen = *this->goal;
+    return;
+  }
+
   if (hasBoundaryNodes)
   {
     // Sample within bounding box of all boundary domains (both trees)
