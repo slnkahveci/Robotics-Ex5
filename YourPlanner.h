@@ -35,6 +35,8 @@ public:
   ::rl::math::Vector bbMin;          // single shared bbox (not array)
   ::rl::math::Vector bbMax;
   ::rl::math::Real boundaryRadius;
+  ::rl::math::Vector weights;        // per-joint weights for distance metric
+
   DistributionType distributionType;
 
   void expandBoundingBox(const ::rl::math::Vector& q);
@@ -46,7 +48,8 @@ protected:
   void chooseFromBoundingBox(::rl::math::Vector& chosen, int treeIdx);
   void expandBoundingBox(int treeIdx, const ::rl::math::Vector& q);
   RrtConConBase::Vertex connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vector& chosen);
-
+  Neighbor nearest(const Tree& tree, const ::rl::math::Vector& chosen) override;
+  ::rl::math::Real weightedDistance(const ::rl::math::Vector& a, const ::rl::math::Vector& b) const;
 private:
 
 };

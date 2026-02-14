@@ -1,4 +1,5 @@
 #include "YourPlanner.h"
+#include <cmath>
 #include <rl/plan/Sampler.h>
 #include <rl/plan/SimpleModel.h>
 #include <rl/plan/Viewer.h>
@@ -86,6 +87,41 @@ YourPlanner::markBoundary(Tree& tree, const Vertex& v)
   expandBoundingBox(*tree[v].q);
 }
 
+::rl::math::Real
+YourPlanner::weightedDistance(const ::rl::math::Vector& a, const ::rl::math::Vector& b) const
+{
+  ::rl::math::Real sum = 0.0;
+  for (int i = 0; i < a.size(); ++i)
+  {
+    ::rl::math::Real diff = a[i] - b[i];
+    sum += weights[i] * diff * diff;
+  }
+  return std::sqrt(sum);
+}
+
+RrtConConBase::Neighbor
+YourPlanner::nearest(const Tree& tree, const ::rl::math::Vector& chosen)
+{
+  Neighbor p(Vertex(), (::std::numeric_limits<::rl::math::Real>::max)());
+  ::rl::math::Real bestWeightedDist = (::std::numeric_limits<::rl::math::Real>::max)();
+
+  for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
+  {
+    // Use weighted distance for selection to prioritize important joints
+    ::rl::math::Real weightedDist = weightedDistance(chosen, *tree[*i.first].q);
+
+    if (weightedDist < bestWeightedDist)
+    {
+      p.first = *i.first;
+      bestWeightedDist = weightedDist;
+      // Store ACTUAL model distance for geometric operations
+      p.second = this->model->distance(chosen, *tree[*i.first].q);
+    }
+  }
+
+  return p;
+}
+
 RrtConConBase::Vertex
 YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vector& chosen)
 {
@@ -153,6 +189,15 @@ YourPlanner::solve()
   // Paper: R = 10 * epsilon (interpolation step)
   boundaryRadius = 10.0 * this->delta;
   hasBoundaryNodes = false;
+
+  // Initialize weighted metric: base joints (larger workspace impact) get higher weight
+  std::size_t dof = this->model->getDof();
+  weights.resize(dof);
+  for (std::size_t i = 0; i < dof; ++i)
+  {
+    // Linearly decreasing weights from base to end-effector
+    weights[i] = static_cast<::rl::math::Real>(dof - i) / dof;
+  }
 
   this->time = ::std::chrono::steady_clock::now();
   this->begin[0] = this->addVertex(this->tree[0], ::std::make_shared<::rl::math::Vector>(*this->start));

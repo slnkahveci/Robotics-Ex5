@@ -19,7 +19,7 @@
 class TutorialPlanSystem
 {
 public:
-  TutorialPlanSystem();
+  TutorialPlanSystem(rl::plan::DistributionType distType = rl::plan::DistributionType::NORMAL);
   virtual ~TutorialPlanSystem();
 
   rl::math::Vector& getGoalConfiguration() {return goal;}
@@ -60,6 +60,8 @@ private:
   rl::plan::RecursiveVerifier verifier; //The verifier for the optimizer
 
   YourPlanner planner;  //The implementation of your planner
+  
+  rl::plan::DistributionType distributionType; //Distribution type for sampling
 };
 
 #endif
