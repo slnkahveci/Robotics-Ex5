@@ -1,0 +1,208 @@
+#include "YourPlanner.h"
+#include <rl/plan/Sampler.h>
+#include <rl/plan/SimpleModel.h>
+#include <rl/plan/Viewer.h>
+
+YourPlanner::YourPlanner(DistributionType distType) :
+  RrtConConBase(),
+  distributionType(distType),
+  hasBoundaryNodes(false)
+{
+}
+
+YourPlanner::~YourPlanner()
+{
+}
+
+::std::string
+YourPlanner::getName() const
+{
+  return "Your Planner";
+}
+
+void
+YourPlanner::choose(::rl::math::Vector& chosen)
+{
+  if (hasBoundaryNodes)
+  {
+    // Sample within bounding box of all boundary domains (both trees)
+    for (int i = 0; i < chosen.size(); ++i)
+    {
+      ::rl::math::Real t = static_cast<::rl::math::Real>(rand()) / RAND_MAX;
+      chosen[i] = bbMin[i] + t * (bbMax[i] - bbMin[i]);
+    }
+  }
+  else
+  {
+    chosen = this->sampler->generate();
+  }
+}
+
+void
+YourPlanner::expandBoundingBox(const ::rl::math::Vector& q)
+{
+  if (!hasBoundaryNodes)
+  {
+    bbMin.resize(q.size());
+    bbMax.resize(q.size());
+    for (int j = 0; j < q.size(); ++j)
+    {
+      bbMin[j] = q[j] - boundaryRadius;
+      bbMax[j] = q[j] + boundaryRadius;
+    }
+    hasBoundaryNodes = true;
+  }
+  else
+  {
+    for (int j = 0; j < q.size(); ++j)
+    {
+      bbMin[j] = std::min(bbMin[j], q[j] - boundaryRadius);
+      bbMax[j] = std::max(bbMax[j], q[j] + boundaryRadius);
+    }
+  }
+}
+
+RrtConConBase::Vertex
+YourPlanner::addVertex(Tree& tree, const ::rl::plan::VectorPtr& q)
+{
+  Vertex v = ::boost::add_vertex(tree);
+  tree[v].index = ::boost::num_vertices(tree) - 1;
+  tree[v].q = q;
+  tree[v].radius = std::numeric_limits<::rl::math::Real>::infinity(); // Line 8: non-boundary
+
+  if (NULL != this->viewer)
+  {
+    this->viewer->drawConfigurationVertex(*tree[v].q);
+  }
+
+  return v;
+}
+
+void
+YourPlanner::markBoundary(Tree& tree, const Vertex& v)
+{
+  // Line 12: mark node as boundary and expand sampling bbox
+  tree[v].radius = boundaryRadius;
+  expandBoundingBox(*tree[v].q);
+}
+
+RrtConConBase::Vertex
+YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vector& chosen)
+{
+  ::rl::math::Real distance = nearest.second;
+  ::rl::math::Real step = distance;
+  bool reached = false;
+
+  if (step <= this->delta)
+  {
+    reached = true;
+  }
+  else
+  {
+    step = this->delta;
+  }
+
+  ::rl::plan::VectorPtr last = ::std::make_shared<::rl::math::Vector>(this->model->getDof());
+  this->model->interpolate(*tree[nearest.first].q, chosen, step / distance, *last);
+  this->model->setPosition(*last);
+  this->model->updateFrames();
+
+  if (this->model->isColliding())
+  {
+    markBoundary(tree, nearest.first);
+    return NULL;
+  }
+
+  ::rl::math::Vector next(this->model->getDof());
+
+  while (!reached)
+  {
+    distance = this->model->distance(*last, chosen);
+    step = distance;
+
+    if (step <= this->delta)
+    {
+      reached = true;
+    }
+    else
+    {
+      step = this->delta;
+    }
+
+    this->model->interpolate(*last, chosen, step / distance, next);
+    this->model->setPosition(next);
+    this->model->updateFrames();
+
+    if (this->model->isColliding())
+    {
+      markBoundary(tree, nearest.first);
+      break;
+    }
+
+    *last = next;
+  }
+
+  Vertex connected = this->addVertex(tree, last);
+  this->addEdge(nearest.first, connected, tree);
+  return connected;
+}
+
+bool
+YourPlanner::solve()
+{
+  // Paper: R = 10 * epsilon (interpolation step)
+  boundaryRadius = 10.0 * this->delta;
+  hasBoundaryNodes = false;
+
+  this->time = ::std::chrono::steady_clock::now();
+  this->begin[0] = this->addVertex(this->tree[0], ::std::make_shared<::rl::math::Vector>(*this->start));
+  this->begin[1] = this->addVertex(this->tree[1], ::std::make_shared<::rl::math::Vector>(*this->goal));
+
+  Tree* a = &this->tree[0];
+  Tree* b = &this->tree[1];
+
+  ::rl::math::Vector chosen(this->model->getDof());
+
+  while ((::std::chrono::steady_clock::now() - this->time) < this->duration)
+  {
+    for (::std::size_t j = 0; j < 2; ++j)
+    {
+      // Lines 3-6: Rejection sampling from dynamic domain
+      Neighbor aNearest;
+      int attempts = 0;
+      do
+      {
+        this->choose(chosen);
+        aNearest = this->nearest(*a, chosen);
+        ++attempts;
+      }
+      while ((*a)[aNearest.first].radius != std::numeric_limits<::rl::math::Real>::infinity() 
+             && aNearest.second < (*a)[aNearest.first].radius 
+             && attempts < 100);
+
+      // Line 7: CONNECT
+      Vertex aConnected = this->connect(*a, aNearest, chosen);
+
+      if (NULL != aConnected)
+      {
+        Neighbor bNearest = this->nearest(*b, *(*a)[aConnected].q);
+        Vertex bConnected = this->connect(*b, bNearest, *(*a)[aConnected].q);
+
+        if (NULL != bConnected)
+        {
+          if (this->areEqual(*(*a)[aConnected].q, *(*b)[bConnected].q))
+          {
+            this->end[0] = &this->tree[0] == a ? aConnected : bConnected;
+            this->end[1] = &this->tree[1] == b ? bConnected : aConnected;
+            return true;
+          }
+        }
+      }
+
+      using ::std::swap;
+      swap(a, b);
+    }
+  }
+
+  return false;
+}

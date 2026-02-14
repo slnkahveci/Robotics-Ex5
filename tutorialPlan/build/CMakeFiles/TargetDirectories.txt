@@ -1,0 +1,4 @@
+/home/selin/tutorialPlan/build/CMakeFiles/edit_cache.dir
+/home/selin/tutorialPlan/build/CMakeFiles/rebuild_cache.dir
+/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan.dir
+/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir
