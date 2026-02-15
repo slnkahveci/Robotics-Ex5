@@ -1,51 +1,51 @@
 {
-	"BUILD_DIR" : "/home/selin/tutorialPlan/build/tutorialPlan_autogen",
-	"CMAKE_BINARY_DIR" : "/home/selin/tutorialPlan/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/selin/tutorialPlan/build",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/selin/tutorialPlan",
+	"BUILD_DIR" : "/home/selin/Robotics-Ex5/build/tutorialPlan_autogen",
+	"CMAKE_BINARY_DIR" : "/home/selin/Robotics-Ex5/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/selin/Robotics-Ex5/build",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/selin/Robotics-Ex5",
 	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/selin/tutorialPlan",
+	"CMAKE_SOURCE_DIR" : "/home/selin/Robotics-Ex5",
 	"HEADERS" : 
 	[
 		[
-			"/home/selin/tutorialPlan/RrtConConBase.h",
+			"/home/selin/Robotics-Ex5/RrtConConBase.h",
 			"Mu",
 			"EWIEGA46WW/moc_RrtConConBase.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/TutorialPlanSystem.h",
+			"/home/selin/Robotics-Ex5/TutorialPlanSystem.h",
 			"Mu",
 			"EWIEGA46WW/moc_TutorialPlanSystem.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/YourPlanner.h",
+			"/home/selin/Robotics-Ex5/YourPlanner.h",
 			"Mu",
 			"EWIEGA46WW/moc_YourPlanner.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/YourSampler.h",
+			"/home/selin/Robotics-Ex5/YourSampler.h",
 			"Mu",
 			"EWIEGA46WW/moc_YourSampler.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.h",
+			"/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.h",
 			"Mu",
 			"ZVPL4XXJSZ/moc_QtPlanningThread.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/qt_visualization/QtViewer.h",
+			"/home/selin/Robotics-Ex5/qt_visualization/QtViewer.h",
 			"Mu",
 			"ZVPL4XXJSZ/moc_QtViewer.cpp"
 		],
 		[
-			"/home/selin/tutorialPlan/qt_visualization/QtWindow.h",
+			"/home/selin/Robotics-Ex5/qt_visualization/QtWindow.h",
 			"Mu",
 			"ZVPL4XXJSZ/moc_QtWindow.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/selin/tutorialPlan/build/tutorialPlan_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/selin/tutorialPlan/build/tutorialPlan_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"BOOST_ALL_NO_LIB",
@@ -69,8 +69,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/selin/tutorialPlan/build",
-		"/home/selin/tutorialPlan",
+		"/home/selin/Robotics-Ex5/build",
+		"/home/selin/Robotics-Ex5",
 		"/usr/local/lib/include",
 		"/usr/include/aarch64-linux-gnu/qt5",
 		"/usr/include/aarch64-linux-gnu/qt5/QtWidgets",
@@ -103,29 +103,29 @@
 		"-c",
 		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/selin/tutorialPlan/build/tutorialPlan_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
 	"PARALLEL" : 1,
-	"PARSE_CACHE_FILE" : "/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir/ParseCache.txt",
+	"PARSE_CACHE_FILE" : "/home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"SETTINGS_FILE" : "/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "/home/selin/tutorialPlan/RrtConConBase.cpp", "Mu" ],
-		[ "/home/selin/tutorialPlan/TutorialPlanSystem.cpp", "Mu" ],
-		[ "/home/selin/tutorialPlan/YourPlanner.cpp", "Mu" ],
-		[ "/home/selin/tutorialPlan/YourSampler.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/RrtConConBase.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/TutorialPlanSystem.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/YourPlanner.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/YourSampler.cpp", "Mu" ],
 		[
-			"/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.cpp",
+			"/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.cpp",
 			"Mu"
 		],
-		[ "/home/selin/tutorialPlan/qt_visualization/QtViewer.cpp", "Mu" ],
-		[ "/home/selin/tutorialPlan/qt_visualization/QtWindow.cpp", "Mu" ],
-		[ "/home/selin/tutorialPlan/tutorialPlan.cpp", "Mu" ]
+		[ "/home/selin/Robotics-Ex5/qt_visualization/QtViewer.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/qt_visualization/QtWindow.cpp", "Mu" ],
+		[ "/home/selin/Robotics-Ex5/tutorialPlan.cpp", "Mu" ]
 	],
 	"VERBOSITY" : 0
 }

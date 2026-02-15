@@ -22,12 +22,23 @@ YourPlanner::getName() const
 }
 
 void
-YourPlanner::choose(::rl::math::Vector& chosen)
+YourPlanner::choose(::rl::math::Vector& chosen, const Tree& tree)
 {
-  // with %5 probability, directly sample the goal to encourage faster convergence
+  // with %5 probability, directly sample the target to encourage faster convergence
+  // For bidirectional planning: sample goal when extending from start, start when extending from goal
   if ((rand() % 20) == 0)
   {
-    chosen = *this->goal;
+    // Determine which tree we're extending from
+    if (&tree == &this->tree[0])
+    {
+      // Extending from start tree -> bias towards goal
+      chosen = *this->goal;
+    }
+    else
+    {
+      // Extending from goal tree -> bias towards start
+      chosen = *this->start;
+    }
     return;
   }
 
@@ -224,7 +235,7 @@ YourPlanner::solve()
       int attempts = 0;
       do
       {
-        this->choose(chosen);
+        this->choose(chosen, *a);
         aNearest = this->nearest(*a, chosen);
         ++attempts;
       }

@@ -44,7 +44,7 @@ public:
 
 protected:
   Vertex addVertex(Tree& tree, const ::rl::plan::VectorPtr& q);
-  void choose(::rl::math::Vector& chosen);
+  void choose(::rl::math::Vector& chosen, const Tree& tree);
   void chooseFromBoundingBox(::rl::math::Vector& chosen, int treeIdx);
   void expandBoundingBox(int treeIdx, const ::rl::math::Vector& q);
   RrtConConBase::Vertex connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vector& chosen);
