@@ -25,13 +25,13 @@ YourPlanner::getName() const
 }
 
 void
-YourPlanner::choose(::rl::math::Vector& chosen, const Tree& tree)
+YourPlanner::choose(::rl::math::Vector& chosen)
 {
   // --- Extension 3: Goal-biased sampling ---
   // With 5% probability, sample the opposite tree's root to encourage convergence
   if (useGoalBias && (rand() % 20) == 0)
   {
-    if (&tree == &this->tree[0])
+    if (currentTree == &this->tree[0])
       chosen = *this->goal;   // extending from start -> bias towards goal
     else
       chosen = *this->start;  // extending from goal  -> bias towards start
@@ -225,7 +225,7 @@ YourPlanner::solve()
   // --- Extension 1: Dynamic-domain init ---
   if (useDynamicDomain)
   {
-    boundaryRadius = 10.0 * this->delta;
+    boundaryRadius = 15.0 * this->delta;    // adjust this param
     hasBoundaryNodes = false;
   }
 
@@ -262,18 +262,20 @@ YourPlanner::solve()
         int attempts = 0;
         do
         {
-          this->choose(chosen, *a);
+          currentTree = a; 
+          this->choose(chosen);
           aNearest = this->nearest(*a, chosen);
           ++attempts;
         }
         while ((*a)[aNearest.first].radius != std::numeric_limits<::rl::math::Real>::infinity()
-               && aNearest.second < (*a)[aNearest.first].radius
-               && attempts < 100);
+               && aNearest.second > (*a)[aNearest.first].radius
+               && attempts < 30); // adjust this param
       }
       else
       {
         // Baseline: single sample, no rejection
-        this->choose(chosen, *a);
+        currentTree = a;
+        this->choose(chosen);
         aNearest = this->nearest(*a, chosen);
       }
 

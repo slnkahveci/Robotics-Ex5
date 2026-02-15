@@ -30,6 +30,7 @@ public:
 
   bool solve();
 
+  Tree* currentTree;
 
   // Extension toggle flags (set before calling solve())
   bool useDynamicDomain;   // Extension 1: dynamic-domain rejection sampling
@@ -52,7 +53,7 @@ public:
 
 protected:
   Vertex addVertex(Tree& tree, const ::rl::plan::VectorPtr& q);
-  void choose(::rl::math::Vector& chosen, const Tree& tree);
+  void choose(::rl::math::Vector& chosen);
   RrtConConBase::Vertex connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vector& chosen);
   Neighbor nearest(const Tree& tree, const ::rl::math::Vector& chosen) override;
   ::rl::math::Real weightedDistance(const ::rl::math::Vector& a, const ::rl::math::Vector& b) const;
