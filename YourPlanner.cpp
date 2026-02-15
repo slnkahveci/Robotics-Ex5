@@ -7,6 +7,9 @@
 YourPlanner::YourPlanner(DistributionType distType) :
   RrtConConBase(),
   distributionType(distType),
+  useDynamicDomain(true),
+  useWeightedMetric(true),
+  useGoalBias(true),
   hasBoundaryNodes(false)
 {
 }
@@ -24,27 +27,20 @@ YourPlanner::getName() const
 void
 YourPlanner::choose(::rl::math::Vector& chosen, const Tree& tree)
 {
-  // with %5 probability, directly sample the target to encourage faster convergence
-  // For bidirectional planning: sample goal when extending from start, start when extending from goal
-  if ((rand() % 20) == 0)
+  // --- Extension 3: Goal-biased sampling ---
+  // With 5% probability, sample the opposite tree's root to encourage convergence
+  if (useGoalBias && (rand() % 20) == 0)
   {
-    // Determine which tree we're extending from
     if (&tree == &this->tree[0])
-    {
-      // Extending from start tree -> bias towards goal
-      chosen = *this->goal;
-    }
+      chosen = *this->goal;   // extending from start -> bias towards goal
     else
-    {
-      // Extending from goal tree -> bias towards start
-      chosen = *this->start;
-    }
+      chosen = *this->start;  // extending from goal  -> bias towards start
     return;
   }
 
-  if (hasBoundaryNodes)
+  // --- Extension 1: Dynamic-domain bounding-box sampling ---
+  if (useDynamicDomain && hasBoundaryNodes)
   {
-    // Sample within bounding box of all boundary domains (both trees)
     for (int i = 0; i < chosen.size(); ++i)
     {
       ::rl::math::Real t = static_cast<::rl::math::Real>(rand()) / RAND_MAX;
@@ -53,6 +49,7 @@ YourPlanner::choose(::rl::math::Vector& chosen, const Tree& tree)
   }
   else
   {
+    // Baseline: uniform random sample
     chosen = this->sampler->generate();
   }
 }
@@ -121,20 +118,37 @@ RrtConConBase::Neighbor
 YourPlanner::nearest(const Tree& tree, const ::rl::math::Vector& chosen)
 {
   Neighbor p(Vertex(), (::std::numeric_limits<::rl::math::Real>::max)());
-  ::rl::math::Real bestWeightedDist = (::std::numeric_limits<::rl::math::Real>::max)();
 
-  for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
+  if (useWeightedMetric)
   {
-    // Use weighted distance for selection to prioritize important joints
-    ::rl::math::Real weightedDist = weightedDistance(chosen, *tree[*i.first].q);
+    // --- Extension 2: Weighted distance metric ---
+    ::rl::math::Real bestWeightedDist = (::std::numeric_limits<::rl::math::Real>::max)();
 
-    if (weightedDist < bestWeightedDist)
+    for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
     {
-      p.first = *i.first;
-      bestWeightedDist = weightedDist;
-      // Store ACTUAL model distance for geometric operations
-      p.second = this->model->distance(chosen, *tree[*i.first].q);
+      ::rl::math::Real wd = weightedDistance(chosen, *tree[*i.first].q);
+      if (wd < bestWeightedDist)
+      {
+        p.first = *i.first;
+        bestWeightedDist = wd;
+        // Store actual model distance for geometric operations
+        p.second = this->model->distance(chosen, *tree[*i.first].q);
+      }
     }
+  }
+  else
+  {
+    // Baseline: model's transformed distance
+    for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
+    {
+      ::rl::math::Real d = this->model->transformedDistance(chosen, *tree[*i.first].q);
+      if (d < p.second)
+      {
+        p.first = *i.first;
+        p.second = d;
+      }
+    }
+    p.second = this->model->inverseOfTransformedDistance(p.second);
   }
 
   return p;
@@ -163,7 +177,9 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
 
   if (this->model->isColliding())
   {
-    markBoundary(tree, nearest.first);
+    // --- Extension 1: mark boundary on collision ---
+    if (useDynamicDomain)
+      markBoundary(tree, nearest.first);
     return NULL;
   }
 
@@ -189,7 +205,9 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
 
     if (this->model->isColliding())
     {
-      markBoundary(tree, nearest.first);
+      // --- Extension 1: mark boundary on collision ---
+      if (useDynamicDomain)
+        markBoundary(tree, nearest.first);
       break;
     }
 
@@ -204,17 +222,23 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
 bool
 YourPlanner::solve()
 {
-  // Paper: R = 10 * epsilon (interpolation step)
-  boundaryRadius = 10.0 * this->delta;
-  hasBoundaryNodes = false;
-
-  // Initialize weighted metric: base joints (larger workspace impact) get higher weight
-  std::size_t dof = this->model->getDof();
-  weights.resize(dof);
-  for (std::size_t i = 0; i < dof; ++i)
+  // --- Extension 1: Dynamic-domain init ---
+  if (useDynamicDomain)
   {
-    // Linearly decreasing weights from base to end-effector
-    weights[i] = static_cast<::rl::math::Real>(dof - i) / dof;
+    boundaryRadius = 10.0 * this->delta;
+    hasBoundaryNodes = false;
+  }
+
+  // --- Extension 2: Weighted metric init ---
+  if (useWeightedMetric)
+  {
+    std::size_t dof = this->model->getDof();
+    weights.resize(dof);
+    for (std::size_t i = 0; i < dof; ++i)
+    {
+      // Linearly decreasing weights from base to end-effector
+      weights[i] = static_cast<::rl::math::Real>(dof - i) / dof;
+    }
   }
 
   this->time = ::std::chrono::steady_clock::now();
@@ -230,20 +254,29 @@ YourPlanner::solve()
   {
     for (::std::size_t j = 0; j < 2; ++j)
     {
-      // Lines 3-6: Rejection sampling from dynamic domain
       Neighbor aNearest;
-      int attempts = 0;
-      do
+
+      if (useDynamicDomain)
       {
+        // --- Extension 1: Rejection sampling from dynamic domain ---
+        int attempts = 0;
+        do
+        {
+          this->choose(chosen, *a);
+          aNearest = this->nearest(*a, chosen);
+          ++attempts;
+        }
+        while ((*a)[aNearest.first].radius != std::numeric_limits<::rl::math::Real>::infinity()
+               && aNearest.second < (*a)[aNearest.first].radius
+               && attempts < 100);
+      }
+      else
+      {
+        // Baseline: single sample, no rejection
         this->choose(chosen, *a);
         aNearest = this->nearest(*a, chosen);
-        ++attempts;
       }
-      while ((*a)[aNearest.first].radius != std::numeric_limits<::rl::math::Real>::infinity() 
-             && aNearest.second < (*a)[aNearest.first].radius 
-             && attempts < 100);
 
-      // Line 7: CONNECT
       Vertex aConnected = this->connect(*a, aNearest, chosen);
 
       if (NULL != aConnected)

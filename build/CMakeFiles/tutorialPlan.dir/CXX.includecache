@@ -212,18 +212,6 @@ YourPlanner.h
 YourSampler.h
 /home/selin/Robotics-Ex5/YourSampler.h
 
-/home/selin/Robotics-Ex5/YourPlanner.cpp
-YourPlanner.h
-/home/selin/Robotics-Ex5/YourPlanner.h
-cmath
--
-rl/plan/Sampler.h
--
-rl/plan/SimpleModel.h
--
-rl/plan/Viewer.h
--
-
 /home/selin/Robotics-Ex5/YourPlanner.h
 RrtConConBase.h
 /home/selin/Robotics-Ex5/RrtConConBase.h
