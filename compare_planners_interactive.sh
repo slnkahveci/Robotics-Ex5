@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Interactive script to compare RrtConConBase and YourPlanner
+# Interactive script to compare YourPlanner and YourPlanner2
 # This script helps you switch between planners and compare results
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -19,6 +19,7 @@ NC='\033[0m'
 clear
 echo -e "${BLUE}╔════════════════════════════════════════════╗"
 echo -e "║   Planner Comparison Helper Script        ║"
+echo -e "║   (YourPlanner vs YourPlanner2)           ║"
 echo -e "╚════════════════════════════════════════════╝${NC}"
 echo ""
 
@@ -40,14 +41,18 @@ trap cleanup EXIT
 switch_to_planner() {
     local planner_type=$1
     
-    if [ "$planner_type" = "baseline" ]; then
-        echo -e "${CYAN}Switching to RrtConConBase (baseline)...${NC}"
-        sed -i.tmp 's|#include "YourPlanner.h"|#include "RrtConConBase.h"|' "$HEADER_FILE"
-        sed -i.tmp 's|YourPlanner planner;|RrtConConBase planner;  //Baseline planner|' "$HEADER_FILE"
-    else
+    if [ "$planner_type" = "planner1" ]; then
         echo -e "${CYAN}Switching to YourPlanner...${NC}"
+        sed -i.tmp 's|#include "YourPlanner2.h"|#include "YourPlanner.h"|' "$HEADER_FILE"
         sed -i.tmp 's|#include "RrtConConBase.h"|#include "YourPlanner.h"|' "$HEADER_FILE"
+        sed -i.tmp 's|YourPlanner2 planner;.*|YourPlanner planner;  //The implementation of your planner|' "$HEADER_FILE"
         sed -i.tmp 's|RrtConConBase planner;.*|YourPlanner planner;  //The implementation of your planner|' "$HEADER_FILE"
+    else
+        echo -e "${CYAN}Switching to YourPlanner2...${NC}"
+        sed -i.tmp 's|#include "YourPlanner.h"|#include "YourPlanner2.h"|' "$HEADER_FILE"
+        sed -i.tmp 's|#include "RrtConConBase.h"|#include "YourPlanner2.h"|' "$HEADER_FILE"
+        sed -i.tmp 's|YourPlanner planner;.*|YourPlanner2 planner;  //The implementation of your second planner|' "$HEADER_FILE"
+        sed -i.tmp 's|RrtConConBase planner;.*|YourPlanner2 planner;  //The implementation of your second planner|' "$HEADER_FILE"
     fi
     rm -f "$HEADER_FILE.tmp"
     
@@ -65,10 +70,12 @@ switch_to_planner() {
 
 # Function to display current planner
 show_current_planner() {
-    if grep -q "YourPlanner planner" "$HEADER_FILE"; then
+    if grep -q "YourPlanner2 planner" "$HEADER_FILE"; then
+        echo -e "${GREEN}Current planner: YourPlanner2${NC}"
+    elif grep -q "YourPlanner planner" "$HEADER_FILE"; then
         echo -e "${GREEN}Current planner: YourPlanner${NC}"
     elif grep -q "RrtConConBase planner" "$HEADER_FILE"; then
-        echo -e "${GREEN}Current planner: RrtConConBase (baseline)${NC}"
+        echo -e "${GREEN}Current planner: RrtConConBase${NC}"
     else
         echo -e "${YELLOW}Current planner: Unknown${NC}"
     fi
@@ -175,8 +182,8 @@ while true; do
     show_current_planner
     echo ""
     echo -e "${YELLOW}What would you like to do?${NC}"
-    echo "  1) Switch to RrtConConBase (baseline) and compile"
-    echo "  2) Switch to YourPlanner and compile"
+    echo "  1) Switch to YourPlanner and compile"
+    echo "  2) Switch to YourPlanner2 and compile"
     echo "  3) Run current planner (opens GUI)"
     echo "  4) Show recent results"
     echo "  5) Compare last two results"
@@ -186,11 +193,11 @@ while true; do
     
     case $choice in
         1)
-            switch_to_planner "baseline"
+            switch_to_planner "planner1"
             echo -e "${GREEN}Ready to test! Choose option 3 to run.${NC}"
             ;;
         2)
-            switch_to_planner "your"
+            switch_to_planner "planner2"
             echo -e "${GREEN}Ready to test! Choose option 3 to run.${NC}"
             ;;
         3)

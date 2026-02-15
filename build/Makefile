@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/selin/tutorialPlan
+CMAKE_SOURCE_DIR = /home/selin/Robotics-Ex5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/selin/tutorialPlan/build
+CMAKE_BINARY_DIR = /home/selin/Robotics-Ex5/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/selin/tutorialPlan/build/CMakeFiles /home/selin/tutorialPlan/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/selin/Robotics-Ex5/build/CMakeFiles /home/selin/Robotics-Ex5/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/selin/tutorialPlan/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/selin/Robotics-Ex5/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -217,6 +217,33 @@ YourPlanner.cpp.s:
 	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.s
 .PHONY : YourPlanner.cpp.s
 
+YourPlanner2.o: YourPlanner2.cpp.o
+
+.PHONY : YourPlanner2.o
+
+# target to build an object file
+YourPlanner2.cpp.o:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o
+.PHONY : YourPlanner2.cpp.o
+
+YourPlanner2.i: YourPlanner2.cpp.i
+
+.PHONY : YourPlanner2.i
+
+# target to preprocess a source file
+YourPlanner2.cpp.i:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.i
+.PHONY : YourPlanner2.cpp.i
+
+YourPlanner2.s: YourPlanner2.cpp.s
+
+.PHONY : YourPlanner2.s
+
+# target to generate assembly for a file
+YourPlanner2.cpp.s:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.s
+.PHONY : YourPlanner2.cpp.s
+
 YourSampler.o: YourSampler.cpp.o
 
 .PHONY : YourSampler.o
@@ -243,6 +270,33 @@ YourSampler.s: YourSampler.cpp.s
 YourSampler.cpp.s:
 	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourSampler.cpp.s
 .PHONY : YourSampler.cpp.s
+
+YourSampler2.o: YourSampler2.cpp.o
+
+.PHONY : YourSampler2.o
+
+# target to build an object file
+YourSampler2.cpp.o:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o
+.PHONY : YourSampler2.cpp.o
+
+YourSampler2.i: YourSampler2.cpp.i
+
+.PHONY : YourSampler2.i
+
+# target to preprocess a source file
+YourSampler2.cpp.i:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.i
+.PHONY : YourSampler2.cpp.i
+
+YourSampler2.s: YourSampler2.cpp.s
+
+.PHONY : YourSampler2.s
+
+# target to generate assembly for a file
+YourSampler2.cpp.s:
+	$(MAKE) -f CMakeFiles/tutorialPlan.dir/build.make CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.s
+.PHONY : YourSampler2.cpp.s
 
 qt_visualization/QtPlanningThread.o: qt_visualization/QtPlanningThread.cpp.o
 
@@ -398,9 +452,15 @@ help:
 	@echo "... YourPlanner.o"
 	@echo "... YourPlanner.i"
 	@echo "... YourPlanner.s"
+	@echo "... YourPlanner2.o"
+	@echo "... YourPlanner2.i"
+	@echo "... YourPlanner2.s"
 	@echo "... YourSampler.o"
 	@echo "... YourSampler.i"
 	@echo "... YourSampler.s"
+	@echo "... YourSampler2.o"
+	@echo "... YourSampler2.i"
+	@echo "... YourSampler2.s"
 	@echo "... qt_visualization/QtPlanningThread.o"
 	@echo "... qt_visualization/QtPlanningThread.i"
 	@echo "... qt_visualization/QtPlanningThread.s"

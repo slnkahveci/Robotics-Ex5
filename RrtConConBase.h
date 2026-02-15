@@ -97,6 +97,7 @@ protected:
     ::rl::math::Real tmp;
 
     ::rl::math::Real radius;  // ∞ for non-boundary, R for boundary
+    int failCount; // for lk-RRT: counts consecutive failures for this node
   };
 
   typedef ::boost::adjacency_list_traits<

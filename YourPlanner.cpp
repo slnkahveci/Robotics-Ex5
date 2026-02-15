@@ -18,7 +18,7 @@ YourPlanner::~YourPlanner()
 ::std::string
 YourPlanner::getName() const
 {
-  return "Your Planner";
+  return "YourPlanner";
 }
 
 void
@@ -76,7 +76,8 @@ YourPlanner::addVertex(Tree& tree, const ::rl::plan::VectorPtr& q)
   Vertex v = ::boost::add_vertex(tree);
   tree[v].index = ::boost::num_vertices(tree) - 1;
   tree[v].q = q;
-  tree[v].radius = std::numeric_limits<::rl::math::Real>::infinity(); // Line 8: non-boundary
+  tree[v].radius = std::numeric_limits<::rl::math::Real>::infinity(); // default non-boundary
+  tree[v].failCount = 0; // for lk-RRT
 
   if (NULL != this->viewer)
   {
@@ -109,24 +110,46 @@ YourPlanner::weightedDistance(const ::rl::math::Vector& a, const ::rl::math::Vec
 RrtConConBase::Neighbor
 YourPlanner::nearest(const Tree& tree, const ::rl::math::Vector& chosen)
 {
-  Neighbor p(Vertex(), (::std::numeric_limits<::rl::math::Real>::max)());
-  ::rl::math::Real bestWeightedDist = (::std::numeric_limits<::rl::math::Real>::max)();
+  // Compute k = max(1, ceil(num_vertices / 100))
+  std::size_t numVerts = ::boost::num_vertices(tree);
+  std::size_t k = std::max((std::size_t)1, 
+                  (std::size_t)std::ceil(numVerts / 100.0));
+
+  // Collect all non-exhausted nodes with their weighted distances
+  std::vector<std::pair<Vertex, ::rl::math::Real>> candidates;
 
   for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
   {
-    // Use weighted distance for selection to prioritize important joints
-    ::rl::math::Real weightedDist = weightedDistance(chosen, *tree[*i.first].q);
+    // l-RRT: skip exhausted nodes
+    if (tree[*i.first].failCount >= exhaustionLimit)
+      continue;
 
-    if (weightedDist < bestWeightedDist)
+    ::rl::math::Real weightedDist = weightedDistance(chosen, *tree[*i.first].q);
+    candidates.push_back({*i.first, weightedDist});
+  }
+
+  // Fallback: if all nodes exhausted, use them anyway
+  if (candidates.empty())
+  {
+    for (VertexIteratorPair i = ::boost::vertices(tree); i.first != i.second; ++i.first)
     {
-      p.first = *i.first;
-      bestWeightedDist = weightedDist;
-      // Store ACTUAL model distance for geometric operations
-      p.second = this->model->distance(chosen, *tree[*i.first].q);
+      ::rl::math::Real weightedDist = weightedDistance(chosen, *tree[*i.first].q);
+      candidates.push_back({*i.first, weightedDist});
     }
   }
 
-  return p;
+  // Partial sort to get k smallest
+  k = std::min(k, candidates.size());
+  std::partial_sort(candidates.begin(), candidates.begin() + k, candidates.end(),
+    [](const std::pair<Vertex, ::rl::math::Real>& a, const std::pair<Vertex, ::rl::math::Real>& b) { return a.second < b.second; });
+
+  // k-RRT: pick randomly among k nearest
+  std::size_t idx = rand() % k;
+  Vertex chosen_v = candidates[idx].first;
+
+  // Return with ACTUAL model distance (not weighted)
+  ::rl::math::Real actualDist = this->model->distance(chosen, *tree[chosen_v].q);
+  return Neighbor(chosen_v, actualDist);
 }
 
 RrtConConBase::Vertex
@@ -135,6 +158,12 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
   ::rl::math::Real distance = nearest.second;
   ::rl::math::Real step = distance;
   bool reached = false;
+
+  // Safety check: if distance is too small, we've essentially reached the target
+  if (distance < 1e-6)
+  {
+    return NULL;
+  }
 
   if (step <= this->delta)
   {
@@ -153,6 +182,7 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
   if (this->model->isColliding())
   {
     markBoundary(tree, nearest.first);
+    tree[nearest.first].failCount++; // Increment failure count for lk-RRT
     return NULL;
   }
 
@@ -162,6 +192,12 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
   {
     distance = this->model->distance(*last, chosen);
     step = distance;
+
+    // Safety check: if distance is too small, we've reached the target
+    if (distance < 1e-6)
+    {
+      break;
+    }
 
     if (step <= this->delta)
     {
@@ -179,6 +215,7 @@ YourPlanner::connect(Tree& tree, const Neighbor& nearest, const ::rl::math::Vect
     if (this->model->isColliding())
     {
       markBoundary(tree, nearest.first);
+      tree[nearest.first].failCount++; // Increment failure count for lk-RRT
       break;
     }
 
@@ -196,6 +233,8 @@ YourPlanner::solve()
   // Paper: R = 10 * epsilon (interpolation step)
   boundaryRadius = 10.0 * this->delta;
   hasBoundaryNodes = false;
+
+  exhaustionLimit = 10; // l: max consecutive failures before removal
 
   // Initialize weighted metric: base joints (larger workspace impact) get higher weight
   std::size_t dof = this->model->getDof();

@@ -37,6 +37,11 @@ public:
   ::rl::math::Real boundaryRadius;
   ::rl::math::Vector weights;        // per-joint weights for distance metric
 
+
+  // lk-RRT parameter
+  int exhaustionLimit;  // l: max consecutive failures before removal (default 10)
+
+
   DistributionType distributionType;
 
   void expandBoundingBox(const ::rl::math::Vector& q);

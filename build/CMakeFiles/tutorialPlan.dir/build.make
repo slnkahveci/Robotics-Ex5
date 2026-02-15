@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/selin/tutorialPlan
+CMAKE_SOURCE_DIR = /home/selin/Robotics-Ex5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/selin/tutorialPlan/build
+CMAKE_BINARY_DIR = /home/selin/Robotics-Ex5/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/tutorialPlan.dir/depend.make
@@ -59,120 +59,146 @@ include CMakeFiles/tutorialPlan.dir/flags.make
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o: tutorialPlan_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o -c /home/selin/tutorialPlan/build/tutorialPlan_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.o -c /home/selin/Robotics-Ex5/build/tutorialPlan_autogen/mocs_compilation.cpp
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/build/tutorialPlan_autogen/mocs_compilation.cpp > CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/build/tutorialPlan_autogen/mocs_compilation.cpp > CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/build/tutorialPlan_autogen/mocs_compilation.cpp -o CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/build/tutorialPlan_autogen/mocs_compilation.cpp -o CMakeFiles/tutorialPlan.dir/tutorialPlan_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o: ../qt_visualization/QtWindow.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o -c /home/selin/tutorialPlan/qt_visualization/QtWindow.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.o -c /home/selin/Robotics-Ex5/qt_visualization/QtWindow.cpp
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/qt_visualization/QtWindow.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/qt_visualization/QtWindow.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.i
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/qt_visualization/QtWindow.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/qt_visualization/QtWindow.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtWindow.cpp.s
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o: ../qt_visualization/QtViewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o -c /home/selin/tutorialPlan/qt_visualization/QtViewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.o -c /home/selin/Robotics-Ex5/qt_visualization/QtViewer.cpp
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/qt_visualization/QtViewer.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/qt_visualization/QtViewer.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.i
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/qt_visualization/QtViewer.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/qt_visualization/QtViewer.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtViewer.cpp.s
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o: ../qt_visualization/QtPlanningThread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o -c /home/selin/tutorialPlan/qt_visualization/QtPlanningThread.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.o -c /home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.cpp
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/qt_visualization/QtPlanningThread.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.cpp > CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.i
 
 CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/qt_visualization/QtPlanningThread.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.cpp -o CMakeFiles/tutorialPlan.dir/qt_visualization/QtPlanningThread.cpp.s
 
 CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o: ../RrtConConBase.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o -c /home/selin/tutorialPlan/RrtConConBase.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.o -c /home/selin/Robotics-Ex5/RrtConConBase.cpp
 
 CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/RrtConConBase.cpp > CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/RrtConConBase.cpp > CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.i
 
 CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/RrtConConBase.cpp -o CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/RrtConConBase.cpp -o CMakeFiles/tutorialPlan.dir/RrtConConBase.cpp.s
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o: ../tutorialPlan.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o -c /home/selin/tutorialPlan/tutorialPlan.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o -c /home/selin/Robotics-Ex5/tutorialPlan.cpp
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/tutorialPlan.cpp > CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/tutorialPlan.cpp > CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.i
 
 CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/tutorialPlan.cpp -o CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/tutorialPlan.cpp -o CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.s
 
 CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o: ../TutorialPlanSystem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o -c /home/selin/tutorialPlan/TutorialPlanSystem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o -c /home/selin/Robotics-Ex5/TutorialPlanSystem.cpp
 
 CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/TutorialPlanSystem.cpp > CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/TutorialPlanSystem.cpp > CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.i
 
 CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/TutorialPlanSystem.cpp -o CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/TutorialPlanSystem.cpp -o CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.s
 
 CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o: ../YourPlanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o -c /home/selin/tutorialPlan/YourPlanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o -c /home/selin/Robotics-Ex5/YourPlanner.cpp
 
 CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/YourPlanner.cpp > CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/YourPlanner.cpp > CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.i
 
 CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/YourPlanner.cpp -o CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/YourPlanner.cpp -o CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.s
 
 CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
 CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o: ../YourSampler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o -c /home/selin/tutorialPlan/YourSampler.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o -c /home/selin/Robotics-Ex5/YourSampler.cpp
 
 CMakeFiles/tutorialPlan.dir/YourSampler.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/YourSampler.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/tutorialPlan/YourSampler.cpp > CMakeFiles/tutorialPlan.dir/YourSampler.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/YourSampler.cpp > CMakeFiles/tutorialPlan.dir/YourSampler.cpp.i
 
 CMakeFiles/tutorialPlan.dir/YourSampler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/YourSampler.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/tutorialPlan/YourSampler.cpp -o CMakeFiles/tutorialPlan.dir/YourSampler.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/YourSampler.cpp -o CMakeFiles/tutorialPlan.dir/YourSampler.cpp.s
+
+CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
+CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o: ../YourPlanner2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o -c /home/selin/Robotics-Ex5/YourPlanner2.cpp
+
+CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/YourPlanner2.cpp > CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.i
+
+CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/YourPlanner2.cpp -o CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.s
+
+CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o: CMakeFiles/tutorialPlan.dir/flags.make
+CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o: ../YourSampler2.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o -c /home/selin/Robotics-Ex5/YourSampler2.cpp
+
+CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/selin/Robotics-Ex5/YourSampler2.cpp > CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.i
+
+CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/selin/Robotics-Ex5/YourSampler2.cpp -o CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.s
 
 # Object files for target tutorialPlan
 tutorialPlan_OBJECTS = \
@@ -184,7 +210,9 @@ tutorialPlan_OBJECTS = \
 "CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o" \
 "CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o" \
 "CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o" \
-"CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o"
+"CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o" \
+"CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o" \
+"CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o"
 
 # External object files for target tutorialPlan
 tutorialPlan_EXTERNAL_OBJECTS =
@@ -198,6 +226,8 @@ tutorialPlan: CMakeFiles/tutorialPlan.dir/tutorialPlan.cpp.o
 tutorialPlan: CMakeFiles/tutorialPlan.dir/TutorialPlanSystem.cpp.o
 tutorialPlan: CMakeFiles/tutorialPlan.dir/YourPlanner.cpp.o
 tutorialPlan: CMakeFiles/tutorialPlan.dir/YourSampler.cpp.o
+tutorialPlan: CMakeFiles/tutorialPlan.dir/YourPlanner2.cpp.o
+tutorialPlan: CMakeFiles/tutorialPlan.dir/YourSampler2.cpp.o
 tutorialPlan: CMakeFiles/tutorialPlan.dir/build.make
 tutorialPlan: /usr/local/lib/librlhal.so.0.7.0
 tutorialPlan: /usr/local/lib/librlplan.so.0.7.0
@@ -224,7 +254,7 @@ tutorialPlan: /usr/lib/aarch64-linux-gnu/libQt5Widgets.so.5.12.8
 tutorialPlan: /usr/lib/aarch64-linux-gnu/libQt5Gui.so.5.12.8
 tutorialPlan: /usr/lib/aarch64-linux-gnu/libQt5Core.so.5.12.8
 tutorialPlan: CMakeFiles/tutorialPlan.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable tutorialPlan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable tutorialPlan"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tutorialPlan.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -237,6 +267,6 @@ CMakeFiles/tutorialPlan.dir/clean:
 .PHONY : CMakeFiles/tutorialPlan.dir/clean
 
 CMakeFiles/tutorialPlan.dir/depend:
-	cd /home/selin/tutorialPlan/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/selin/tutorialPlan /home/selin/tutorialPlan /home/selin/tutorialPlan/build /home/selin/tutorialPlan/build /home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/selin/Robotics-Ex5/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/selin/Robotics-Ex5 /home/selin/Robotics-Ex5 /home/selin/Robotics-Ex5/build /home/selin/Robotics-Ex5/build /home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tutorialPlan.dir/depend
 

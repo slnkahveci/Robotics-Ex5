@@ -39,6 +39,8 @@ SET(
 	TutorialPlanSystem.h
         YourPlanner.h
 	YourSampler.h
+	YourPlanner2.h
+	YourSampler2.h
 )
 
 SET(
@@ -51,6 +53,8 @@ SET(
 	TutorialPlanSystem.cpp
         YourPlanner.cpp
 	YourSampler.cpp
+	YourPlanner2.cpp
+	YourSampler2.cpp
 )
 
 QT_WRAP_CPP(

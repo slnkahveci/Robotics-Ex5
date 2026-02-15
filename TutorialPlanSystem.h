@@ -12,8 +12,8 @@
 #include <rl/sg/so/Scene.h>
 #include <rl/sg/bullet/Scene.h>
 
-//#include "YourPlanner.h"
-#include "YourPlanner.h"
+//#include "YourPlanner2.h"
+#include "YourPlanner2.h"
 #include "YourSampler.h"
 
 class TutorialPlanSystem
@@ -59,7 +59,7 @@ private:
   rl::plan::AdvancedOptimizer optimizer; //Trajectory length optimizer
   rl::plan::RecursiveVerifier verifier; //The verifier for the optimizer
 
-  YourPlanner planner;  //The implementation of your planner
+  YourPlanner2 planner;  //The implementation of your second planner
   
   rl::plan::DistributionType distributionType; //Distribution type for sampling
 };

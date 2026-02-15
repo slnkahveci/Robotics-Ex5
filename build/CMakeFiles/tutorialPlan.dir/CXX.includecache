@@ -45,12 +45,12 @@ rl/sg/so/Scene.h
 -
 rl/sg/bullet/Scene.h
 -
-YourPlanner.h
-../YourPlanner.h
+YourPlanner2.h
+../YourPlanner2.h
 YourSampler.h
 ../YourSampler.h
 
-../YourPlanner.h
+../YourPlanner2.h
 RrtConConBase.h
 ../RrtConConBase.h
 YourSampler.h
@@ -152,7 +152,7 @@ QtViewer.h
 QtPlanningThread.h
 ../qt_visualization/QtPlanningThread.h
 
-/home/selin/tutorialPlan/RrtConConBase.h
+/home/selin/Robotics-Ex5/RrtConConBase.h
 boost/graph/adjacency_list.hpp
 -
 rl/plan/MatrixPtr.h
@@ -170,23 +170,23 @@ rl/plan/VectorPtr.h
 rl/plan/Verifier.h
 -
 
-/home/selin/tutorialPlan/TutorialPlanSystem.cpp
+/home/selin/Robotics-Ex5/TutorialPlanSystem.cpp
 fstream
 -
 QDateTime
 -
 TutorialPlanSystem.h
-/home/selin/tutorialPlan/TutorialPlanSystem.h
+/home/selin/Robotics-Ex5/TutorialPlanSystem.h
 rl/math/Unit.h
-/home/selin/tutorialPlan/rl/math/Unit.h
+/home/selin/Robotics-Ex5/rl/math/Unit.h
 rl/math/Rotation.h
-/home/selin/tutorialPlan/rl/math/Rotation.h
+/home/selin/Robotics-Ex5/rl/math/Rotation.h
 rl/plan/UniformSampler.h
-/home/selin/tutorialPlan/rl/plan/UniformSampler.h
+/home/selin/Robotics-Ex5/rl/plan/UniformSampler.h
 iostream
 -
 
-/home/selin/tutorialPlan/TutorialPlanSystem.h
+/home/selin/Robotics-Ex5/TutorialPlanSystem.h
 rl/kin/Kinematics.h
 -
 rl/plan/DistanceModel.h
@@ -207,66 +207,56 @@ rl/sg/so/Scene.h
 -
 rl/sg/bullet/Scene.h
 -
-YourPlanner.h
-/home/selin/tutorialPlan/YourPlanner.h
+YourPlanner2.h
+/home/selin/Robotics-Ex5/YourPlanner2.h
 YourSampler.h
-/home/selin/tutorialPlan/YourSampler.h
+/home/selin/Robotics-Ex5/YourSampler.h
 
-/home/selin/tutorialPlan/YourPlanner.cpp
-YourPlanner.h
-/home/selin/tutorialPlan/YourPlanner.h
-rl/plan/Sampler.h
--
-rl/plan/SimpleModel.h
--
-rl/plan/Viewer.h
--
-
-/home/selin/tutorialPlan/YourPlanner.h
+/home/selin/Robotics-Ex5/YourPlanner2.h
 RrtConConBase.h
-/home/selin/tutorialPlan/RrtConConBase.h
+/home/selin/Robotics-Ex5/RrtConConBase.h
 YourSampler.h
-/home/selin/tutorialPlan/YourSampler.h
+/home/selin/Robotics-Ex5/YourSampler.h
 
-/home/selin/tutorialPlan/YourSampler.h
+/home/selin/Robotics-Ex5/YourSampler.h
 rl/plan/Sampler.h
 -
 random
 -
 
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtPlanningThread.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtPlanningThread.cpp
 qt_visualization/QtPlanningThread.h
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtPlanningThread.h
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtPlanningThread.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtViewer.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtViewer.cpp
 qt_visualization/QtViewer.h
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtViewer.h
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtViewer.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtWindow.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtWindow.cpp
 qt_visualization/QtWindow.h
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtWindow.h
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/qt_visualization/QtWindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/mocs_compilation.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/mocs_compilation.cpp
 ZVPL4XXJSZ/moc_QtPlanningThread.cpp
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtPlanningThread.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtPlanningThread.cpp
 ZVPL4XXJSZ/moc_QtViewer.cpp
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtViewer.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtViewer.cpp
 ZVPL4XXJSZ/moc_QtWindow.cpp
-/home/selin/tutorialPlan/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtWindow.cpp
+/home/selin/Robotics-Ex5/build/tutorialPlan_autogen/ZVPL4XXJSZ/moc_QtWindow.cpp
 
-/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.cpp
+/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.cpp
 fstream
 -
 QApplication
@@ -284,9 +274,9 @@ rl/plan/Prm.h
 rl/plan/Rrt.h
 -
 QtPlanningThread.h
-/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.h
+/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.h
 
-/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.h
+/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.h
 QThread
 -
 QMutex
@@ -294,9 +284,9 @@ QMutex
 rl/plan/Viewer.h
 -
 ../TutorialPlanSystem.h
-/home/selin/tutorialPlan/TutorialPlanSystem.h
+/home/selin/Robotics-Ex5/TutorialPlanSystem.h
 
-/home/selin/tutorialPlan/qt_visualization/QtViewer.h
+/home/selin/Robotics-Ex5/qt_visualization/QtViewer.h
 QWidget
 -
 QMutex
@@ -332,7 +322,7 @@ rl/plan/VectorList.h
 rl/plan/Viewer.h
 -
 
-/home/selin/tutorialPlan/qt_visualization/QtWindow.cpp
+/home/selin/Robotics-Ex5/qt_visualization/QtWindow.cpp
 QApplication
 -
 QDateTime
@@ -370,13 +360,13 @@ Inventor/nodes/SoPerspectiveCamera.h
 Inventor/Qt/SoQt.h
 -
 rl/math/Unit.h
-/home/selin/tutorialPlan/qt_visualization/rl/math/Unit.h
+/home/selin/Robotics-Ex5/qt_visualization/rl/math/Unit.h
 rl/math/Rotation.h
-/home/selin/tutorialPlan/qt_visualization/rl/math/Rotation.h
+/home/selin/Robotics-Ex5/qt_visualization/rl/math/Rotation.h
 QtWindow.h
-/home/selin/tutorialPlan/qt_visualization/QtWindow.h
+/home/selin/Robotics-Ex5/qt_visualization/QtWindow.h
 
-/home/selin/tutorialPlan/qt_visualization/QtWindow.h
+/home/selin/Robotics-Ex5/qt_visualization/QtWindow.h
 QAction
 -
 QDockWidget
@@ -414,21 +404,21 @@ rl/sg/so/Scene.h
 rl/sg/bullet/Scene.h
 -
 ../TutorialPlanSystem.h
-/home/selin/tutorialPlan/TutorialPlanSystem.h
+/home/selin/Robotics-Ex5/TutorialPlanSystem.h
 QtViewer.h
-/home/selin/tutorialPlan/qt_visualization/QtViewer.h
+/home/selin/Robotics-Ex5/qt_visualization/QtViewer.h
 QtPlanningThread.h
-/home/selin/tutorialPlan/qt_visualization/QtPlanningThread.h
+/home/selin/Robotics-Ex5/qt_visualization/QtPlanningThread.h
 
-/home/selin/tutorialPlan/tutorialPlan.cpp
+/home/selin/Robotics-Ex5/tutorialPlan.cpp
 QApplication
 -
 Inventor/Qt/SoQt.h
 -
 qt_visualization/QtWindow.h
-/home/selin/tutorialPlan/qt_visualization/QtWindow.h
+/home/selin/Robotics-Ex5/qt_visualization/QtWindow.h
 TutorialPlanSystem.h
-/home/selin/tutorialPlan/TutorialPlanSystem.h
+/home/selin/Robotics-Ex5/TutorialPlanSystem.h
 
 /usr/include/aarch64-linux-gnu/qt5/QtCore/QDateTime
 qdatetime.h

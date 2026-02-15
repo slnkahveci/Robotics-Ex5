@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/selin/tutorialPlan
+CMAKE_SOURCE_DIR = /home/selin/Robotics-Ex5
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/selin/tutorialPlan/build
+CMAKE_BINARY_DIR = /home/selin/Robotics-Ex5/build
 
 # Utility rule file for tutorialPlan_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/selin/tutorialPlan/build
 include CMakeFiles/tutorialPlan_autogen.dir/progress.make
 
 CMakeFiles/tutorialPlan_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/selin/tutorialPlan/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target tutorialPlan"
-	/usr/bin/cmake -E cmake_autogen /home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir/AutogenInfo.json ""
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/selin/Robotics-Ex5/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target tutorialPlan"
+	/usr/bin/cmake -E cmake_autogen /home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan_autogen.dir/AutogenInfo.json ""
 
 tutorialPlan_autogen: CMakeFiles/tutorialPlan_autogen
 tutorialPlan_autogen: CMakeFiles/tutorialPlan_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/tutorialPlan_autogen.dir/clean:
 .PHONY : CMakeFiles/tutorialPlan_autogen.dir/clean
 
 CMakeFiles/tutorialPlan_autogen.dir/depend:
-	cd /home/selin/tutorialPlan/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/selin/tutorialPlan /home/selin/tutorialPlan /home/selin/tutorialPlan/build /home/selin/tutorialPlan/build /home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/selin/Robotics-Ex5/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/selin/Robotics-Ex5 /home/selin/Robotics-Ex5 /home/selin/Robotics-Ex5/build /home/selin/Robotics-Ex5/build /home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/tutorialPlan_autogen.dir/depend
 

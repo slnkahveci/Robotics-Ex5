@@ -1,4 +1,4 @@
-/home/selin/tutorialPlan/build/CMakeFiles/edit_cache.dir
-/home/selin/tutorialPlan/build/CMakeFiles/rebuild_cache.dir
-/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan.dir
-/home/selin/tutorialPlan/build/CMakeFiles/tutorialPlan_autogen.dir
+/home/selin/Robotics-Ex5/build/CMakeFiles/edit_cache.dir
+/home/selin/Robotics-Ex5/build/CMakeFiles/rebuild_cache.dir
+/home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan.dir
+/home/selin/Robotics-Ex5/build/CMakeFiles/tutorialPlan_autogen.dir
